@@ -4,6 +4,11 @@
 /* Center the login box and give it a styled background */
 #loginPage {
     background: radial-gradient(circle at center, #1a1a24 0%, #050508 100%);
+    margin-top: 8em;
+    /*
+      background: url(https://raw.githubusercontent.com/CTalvio/Ultrachromic/main/assets/background.png) !important;
+        background-size: cover !important;
+    */
 }
 
 #loginPage .readOnlyContent {
@@ -25,4 +30,10 @@
 
 .emby-input:focus {
     border-color: var(--accent-color);
+}
+
+#loginPage .sectionTitle{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 1.2em !important;
 }
