@@ -22,22 +22,55 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     background-color: var(--theme-bg);
 }
 
+.backgroundContainer.withBackdrop {
+    background-color: rgba(0,0,0,.55) !important;
+}
+
 .backdropImage {
     /* Force GPU acceleration to prevent lag on older TVs */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    
-    filter: brightness(35%) !important; 
-    
-    -webkit-animation: backdropMove 45s infinite alternate ease-in-out;
-    animation: backdropMove 45s infinite alternate ease-in-out;
+    filter: saturate(70%);
+    -webkit-animation: backdropMove 10s ease-in-out forwards;
+    animation: backdropMove 10s ease-in-out forwards;
+}
+
+/* TV-safe prefixed keyframes */
+@-webkit-keyframes backdropMove {
+    0% {
+        -webkit-transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Match Jellyfin's built-in fade-in timing */
+    }
+    100% {
+        /* Subtle 15% zoom and 1.5 degree rotation */
+        -webkit-transform: scale(1.1) rotate(1.5deg);
+        opacity: 1;
+    }
+}
+
+@keyframes backdropMove {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Match Jellyfin's built-in fade-in timing */
+    }
+    100% {
+        transform: scale(1.1) rotate(1.5deg);
+        opacity: 1;
+    }
 }
 
 /* --------------------------------------------------------------------------
    5. BUTTONS & CONTROLS
    -------------------------------------------------------------------------- */
 .button-flat {
-    border-radius: var(--border-radius) !important;
+    /*border-radius: var(--border-radius) !important;*/
+    border-radius: 50% !important;
     background-color: rgba(255, 255, 255, 0.1);
     -webkit-transition: background-color 0.2s ease;
     transition: background-color 0.2s ease;
@@ -48,12 +81,16 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     color: #fff;
 }
 
+.detailButton {
+    margin-right: 0.35em !important;
+}
+
 /* --------------------------------------------------------------------------
    6. TOP HEADER & NAVIGATION & MENU
    -------------------------------------------------------------------------- */
 .skinHeader, .skinHeader.semiTransparent, .mainDrawer, .drawer-open {
-    background-color: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(15px) !important;
 }
 
 .mainDrawer {
@@ -64,4 +101,40 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     background-color: rgba(0, 164, 220, 0.2) !important; /* Using accent color with opacity */
     color: var(--accent-color);
     border-left: 4px solid var(--accent-color);
+}
+
+/* --------------------------------------------------------------------------
+   ITEM DETAILS
+   -------------------------------------------------------------------------- */
+.detailImageContainer {
+    border-radius: var(--border-radius);
+    position: fixed !important;
+    z-index: 10;
+    top: 23vh;
+    left: 5vh;
+}
+
+.itemBackdrop {
+    height: 40vh;
+}
+
+.detailLogo {
+    top: 10vh;  
+}
+
+.detailSection {
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

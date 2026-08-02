@@ -10,6 +10,7 @@
     /* TV-safe transitions */
     -webkit-transition: -webkit-transform 0.2s ease, box-shadow 0.2s ease;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: left center;
 }
 
 /* Desktop hover & TV focus states */
@@ -17,6 +18,9 @@
     -webkit-transform: scale(1.04);
     transform: scale(1.04);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+.overflowPortraitCard {
+    overflow: visible;
 }
 
 /* Card Titles */
@@ -63,4 +67,39 @@
   border: 1px solid rgba(100, 100, 100, 0.81);
   background-color: rgba(0, 0, 0, 0);
   transition: opacity .6s;
+}
+
+/* --------------------------------------------------------------------------
+   MEDIA INFO AND RATINGS
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .quality-overlay-container {
+   /* top: 2px;
+    flex-direction: row;
+    left: auto;*/
+    gap: 4px;
+  }
+
+  .quality-overlay-label {
+    font-size: 0.7rem;
+    padding: 1px 8px;
+    border-radius: 4px;
+  }
+}
+
+.rating-overlay-container {
+  bottom: 2px;
+  right: auto;
+  flex-direction: row;
+  gap: 2px;
+}
+.rating-tag {
+  padding: 2px 8px;
+  font-size: 0.7rem;
+}
+
+.language-overlay-container {
+  .language-flag {
+    width: clamp(20px, 4vw, 28px);
+  }
 }

@@ -2,8 +2,4 @@
    theme.css (The Master File)
    ========================================================= */
 
-@import url('variables.css');
-@import url('main.css');
-@import url('cards.css');
-@import url('player.css');
-/*@import url('login.css');*/
+/* all files should be merged here */
