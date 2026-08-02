@@ -85,6 +85,16 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     margin-right: 0.35em !important;
 }
 
+.sectionTitleTextButton {
+    border-radius: 2px !important;
+    padding: 15px 10px 10px 20px !important
+}
+
+.listTextButton-autohide {
+    border-radius: 2px !important;
+    margin: 0 5px !important
+}
+
 /* --------------------------------------------------------------------------
    6. TOP HEADER & NAVIGATION & MENU
    -------------------------------------------------------------------------- */
@@ -138,4 +148,10 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+/* **** PAgination *** */
+
+.alphaPicker-fixed-right {
+    top: 5hv !important;
 }
