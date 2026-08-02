@@ -1,0 +1,339 @@
+/* =============================================
+   Jellyfin Dark Theme - THG
+   A base dark theme for Jellyfin Media Server
+   ============================================= */
+
+/* -----------------------------------------------
+   CSS Variables / Color Palette
+   ----------------------------------------------- */
+:root {
+    --accent-color: #00a4dc;
+    --accent-color-hover: #0085b3;
+
+    --background-color: #101010;
+    --surface-color: #181818;
+    --surface-raised-color: #202020;
+    --surface-highlight-color: #282828;
+
+    --text-color-primary: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
+    --text-color-muted: #606060;
+
+    --border-color: #2a2a2a;
+    --border-radius: 4px;
+
+    --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --overlay-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* -----------------------------------------------
+   Global / Body
+   ----------------------------------------------- */
+body,
+.backgroundContainer {
+    background-color: var(--background-color) !important;
+    color: var(--text-color-primary) !important;
+}
+
+.skinHeader {
+    background-color: var(--surface-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* -----------------------------------------------
+   Navigation / Drawer
+   ----------------------------------------------- */
+.mainDrawer,
+.mainDrawer-scrollContainer {
+    background-color: var(--surface-color) !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+
+.navMenuOption {
+    color: var(--text-color-primary) !important;
+}
+
+.navMenuOption:hover,
+.navMenuOption.selected {
+    background-color: var(--surface-highlight-color) !important;
+    color: var(--accent-color) !important;
+}
+
+.navMenuOption.selected .navMenuOptionIcon {
+    color: var(--accent-color) !important;
+}
+
+/* -----------------------------------------------
+   Page Content
+   ----------------------------------------------- */
+.readOnlyContent,
+.itemDetailPage,
+.libraryPage,
+.homePage,
+.standardContainer {
+    background-color: var(--background-color) !important;
+}
+
+/* -----------------------------------------------
+   Cards
+   ----------------------------------------------- */
+.card {
+    background-color: var(--surface-color) !important;
+    border-radius: var(--border-radius) !important;
+}
+
+.cardBox,
+.cardContent {
+    background-color: var(--surface-color) !important;
+}
+
+.cardText,
+.cardTextCentered {
+    color: var(--text-color-primary) !important;
+}
+
+.cardSubtitle,
+.cardText.cardTextSecondary {
+    color: var(--text-color-secondary) !important;
+}
+
+.card:hover .cardBox,
+.card:focus .cardBox {
+    box-shadow: var(--card-shadow) !important;
+}
+
+.cardOverlayContainer {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0) 60%
+    ) !important;
+}
+
+/* -----------------------------------------------
+   Buttons
+   ----------------------------------------------- */
+.emby-button,
+.paper-icon-button-light {
+    color: var(--text-color-primary) !important;
+}
+
+.raised.emby-button,
+.raised.button-accent {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+}
+
+.raised.emby-button:hover,
+.raised.button-accent:hover {
+    background-color: var(--accent-color-hover) !important;
+}
+
+.button-flat.emby-button {
+    color: var(--accent-color) !important;
+}
+
+.button-flat.emby-button:hover {
+    background-color: var(--surface-highlight-color) !important;
+}
+
+/* -----------------------------------------------
+   Inputs / Forms
+   ----------------------------------------------- */
+.emby-input,
+.emby-textarea,
+.emby-select,
+select.emby-select {
+    background-color: var(--surface-raised-color) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color-primary) !important;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select:focus {
+    border-color: var(--accent-color) !important;
+    outline: none !important;
+}
+
+.inputLabel,
+.checkboxLabel,
+.fieldDescription {
+    color: var(--text-color-secondary) !important;
+}
+
+/* -----------------------------------------------
+   Dialogs / Overlays
+   ----------------------------------------------- */
+.dialogContainer,
+.focuscontainer-dialog {
+    background-color: var(--surface-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--overlay-shadow) !important;
+}
+
+.dialog {
+    background-color: var(--surface-color) !important;
+    color: var(--text-color-primary) !important;
+}
+
+.dialogHeader {
+    background-color: var(--surface-raised-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* -----------------------------------------------
+   Menus / Context Menus
+   ----------------------------------------------- */
+.actionSheetMenuItem,
+.contextMenu {
+    background-color: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color-primary) !important;
+}
+
+.actionSheetMenuItem:hover {
+    background-color: var(--surface-highlight-color) !important;
+}
+
+/* -----------------------------------------------
+   Progress Bars / Media Controls
+   ----------------------------------------------- */
+.mdl-progress .progressbar {
+    background-color: var(--accent-color) !important;
+}
+
+.mdl-progress .bufferbar {
+    background-color: rgba(0, 164, 220, 0.3) !important;
+}
+
+.osdControls,
+.osd {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0) 100%
+    ) !important;
+}
+
+.sliderContainer .mdl-slider-container .mdl-slider::-webkit-slider-thumb {
+    background-color: var(--accent-color) !important;
+}
+
+.sliderContainer .mdl-slider-container .mdl-slider::-moz-range-thumb {
+    background-color: var(--accent-color) !important;
+}
+
+/* -----------------------------------------------
+   Tabs
+   ----------------------------------------------- */
+.emby-tabs-slider {
+    background-color: var(--accent-color) !important;
+}
+
+.emby-tab-button {
+    color: var(--text-color-secondary) !important;
+}
+
+.emby-tab-button.emby-tab-button-active {
+    color: var(--accent-color) !important;
+}
+
+/* -----------------------------------------------
+   Sections / Headers
+   ----------------------------------------------- */
+.sectionTitle,
+.sectionTitleContainer .sectionTitle {
+    color: var(--text-color-primary) !important;
+}
+
+.sectionTitle-cards a,
+.more-button {
+    color: var(--accent-color) !important;
+}
+
+/* -----------------------------------------------
+   Backdrop / Hero
+   ----------------------------------------------- */
+.backdropImage {
+    filter: brightness(0.4) !important;
+}
+
+.itemBackdropContainer::after {
+    background: linear-gradient(
+        to top,
+        var(--background-color) 15%,
+        transparent 60%
+    ) !important;
+}
+
+/* -----------------------------------------------
+   Detail Page
+   ----------------------------------------------- */
+.itemDetailImage {
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--overlay-shadow) !important;
+}
+
+.itemDetailGalleryLink img {
+    border-radius: var(--border-radius) !important;
+}
+
+.itemMiscInfo,
+.itemGenres,
+.starRatingContainer {
+    color: var(--text-color-secondary) !important;
+}
+
+.overview {
+    color: var(--text-color-primary) !important;
+}
+
+/* -----------------------------------------------
+   Rating Stars
+   ----------------------------------------------- */
+.starRating,
+.ratingValue {
+    color: #f0c040 !important;
+}
+
+/* -----------------------------------------------
+   Badges / Tags
+   ----------------------------------------------- */
+.mediaBadge,
+.indicator {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+}
+
+/* -----------------------------------------------
+   Scrollbar Styling
+   ----------------------------------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-highlight-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color-muted);
+}
+
+/* -----------------------------------------------
+   Responsive
+   ----------------------------------------------- */
+@media (max-width: 600px) {
+    .skinHeader {
+        background-color: var(--background-color) !important;
+    }
+}
