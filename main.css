@@ -1,0 +1,67 @@
+/* ==========================================================================
+   CUSTOM JELLYFIN THEME - BASE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL BACKGROUNDS & TEXT
+   -------------------------------------------------------------------------- */
+.backgroundContainer, .workspace {
+    background-color: var(--theme-bg);
+}
+
+body, h1, h2, h3, h4, h5, h6, .textActionButton {
+    color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   3. BACKDROP ANIMATIONS (Hardware Accelerated & TV Safe)
+   Removes default blur and replaces it with a slow, performant zoom/rotate.
+   -------------------------------------------------------------------------- */
+/* Darken the backdrop slightly so text remains readable */
+.backdropContainer {
+    background-color: var(--theme-bg);
+}
+
+.backdropImage {
+    /* Force GPU acceleration to prevent lag on older TVs */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    
+    filter: brightness(35%) !important; 
+    
+    -webkit-animation: backdropMove 45s infinite alternate ease-in-out;
+    animation: backdropMove 45s infinite alternate ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS & CONTROLS
+   -------------------------------------------------------------------------- */
+.button-flat {
+    border-radius: var(--border-radius) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+.button-flat:hover, .button-flat:focus {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   6. TOP HEADER & NAVIGATION & MENU
+   -------------------------------------------------------------------------- */
+.skinHeader, .skinHeader.semiTransparent, .mainDrawer, .drawer-open {
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(15px);
+}
+
+.mainDrawer {
+    background-color: var(--theme-drawer-bg);
+}
+
+.navMenuOption-selected {
+    background-color: rgba(0, 164, 220, 0.2) !important; /* Using accent color with opacity */
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+}

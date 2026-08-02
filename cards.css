@@ -1,0 +1,66 @@
+/* --------------------------------------------------------------------------
+   4. MEDIA CARDS
+   Clean borders, smooth hover scaling.
+   -------------------------------------------------------------------------- */
+.cardBox {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    
+    /* TV-safe transitions */
+    -webkit-transition: -webkit-transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Desktop hover & TV focus states */
+.cardBox:hover, .cardBox:focus-within {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Card Titles */
+.cardText {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.cardText-secondary {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+/* --------------------------------------------------------------------------
+   7. CARD INDICATORS (Watched & Progress)
+   -------------------------------------------------------------------------- */
+/* The "Watched" checkmark circle */
+.playedIndicator {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* The unplayed episode count notification badge */
+.countIndicator {
+    background-color: var(--theme-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* The resume progress bar at the bottom of a card */
+.itemProgressBar {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 6px; /* Make it slightly thicker */
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+/* The filled portion of the progress bar */
+.itemProgressBarForeground {
+    background-color: var(--accent-color);
+}
+
+.cardOverlayContainer {
+  box-shadow: inset 0 0 3em 1.5em black;
+  border: 1px solid rgba(100, 100, 100, 0.81);
+  background-color: rgba(0, 0, 0, 0);
+  transition: opacity .6s;
+}

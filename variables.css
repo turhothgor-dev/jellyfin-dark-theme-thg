@@ -1,0 +1,41 @@
+/* --------------------------------------------------------------------------
+   1. COLOR PALETTE & VARIABLES
+   Defining colors here allows you to change the whole theme from one spot.
+   -------------------------------------------------------------------------- */
+:root {
+    /* Backgrounds */
+    --theme-bg: #0f0f13;
+    --theme-drawer-bg: #141419;
+    --card-bg: rgba(25, 25, 30, 0.8);
+    
+    /* Accents (Change this to your preferred brand color) */
+    --accent-color: #00a4dc; 
+    --accent-color-hover: #00c3ff;
+    
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0aa;
+    
+    /* Geometry */
+    --border-radius: 10px;
+}
+
+/* TV-safe prefixed keyframes */
+@-webkit-keyframes backdropMove {
+    0% {
+        -webkit-transform: scale(1) rotate(0deg);
+    }
+    100% {
+        /* Subtle 5% zoom and 1.5 degree rotation */
+        -webkit-transform: scale(1.05) rotate(1.5deg);
+    }
+}
+
+@keyframes backdropMove {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.05) rotate(1.5deg);
+    }
+}

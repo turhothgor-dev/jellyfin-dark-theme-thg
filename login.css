@@ -1,0 +1,28 @@
+/* --------------------------------------------------------------------------
+   8. LOGIN SCREEN
+   -------------------------------------------------------------------------- */
+/* Center the login box and give it a styled background */
+#loginPage {
+    background: radial-gradient(circle at center, #1a1a24 0%, #050508 100%);
+}
+
+#loginPage .readOnlyContent {
+    background-color: rgba(20, 20, 25, 0.8);
+    backdrop-filter: blur(10px); /* Blur is okay here, TVs rarely see the login screen! */
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Style the login input fields */
+.emby-input {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: var(--text-primary);
+}
+
+.emby-input:focus {
+    border-color: var(--accent-color);
+}
