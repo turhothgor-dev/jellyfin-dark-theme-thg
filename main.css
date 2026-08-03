@@ -85,7 +85,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     margin-right: 0.35em !important;
 }
 
-.sectionTitleTextButton {
+.sectionTitleTextButton, .sectionTitleTextButton:not(.padded-left) {
     border-radius: 2px !important;
     padding: 15px 10px 10px 20px !important
 }
