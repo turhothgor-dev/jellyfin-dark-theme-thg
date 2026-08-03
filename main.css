@@ -123,6 +123,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     top: 23vh;
     left: 5vh;
     max-height: 75vh;
+    pointer-events: none;
 }
 
 .itemBackdrop {
