@@ -1,0 +1,102 @@
+/* --------------------------------------------------------------------------
+   8. ITEM DETAILS
+   -------------------------------------------------------------------------- */
+
+.itemDetailPage {
+  padding-top: 50vh !important;
+}
+
+.detailImageContainer {
+    display: none;
+    border-radius: var(--border-radius);
+    position: fixed !important;
+    z-index: 10;
+    top: 23vh;
+    left: 5vh;
+    max-height: 75vh !important;
+    pointer-events: none;
+}
+
+.detailImageContainer .cardScalable {
+    max-height: 75vh;
+}
+
+.itemBackdrop {
+    height: inherit;
+}
+
+.detailLogo {
+    top: 27vh;
+    left: 2.8vw;
+    background-position: left;
+}
+
+.layout-desktop [dir="ltr"] .detailRibbon {
+    padding-left: 4vw;
+}
+
+.layout-desktop .detailRibbon {
+    height: 5.2em;
+    margin-top: -5.2em;
+    background: none;
+    display: block;
+}
+
+[dir="ltr"] .detailPagePrimaryContent {
+  padding-left: 3.6vw;
+}
+
+.detailPagePrimaryContent {
+    padding-top: 1vh;
+}
+
+.detailSection {
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideInRight 0.6s ease-out forwards;
+    background: rgb(0,0,0, 0.2);
+    padding: 20px;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.detailSectionContent {
+    margin-top: 10px;
+}
+
+#castContent .overflowPortraitCard {
+    max-width: 9vw;
+    min-width: 7vw;
+}
+
+#castContent  .card {
+    font-size: 13px;
+}
+#castContent .cardText {
+    padding: .01em 2px;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* **** Pagination *** */
+
+.alphaPicker-fixed-right {
+    top: 5vh !important;
+}
+
+/* ----------------------------------- 
+    List items on series
+   ----------------------------------- */
+
+   .listItemImage {
+    max-height: 13em;
+}

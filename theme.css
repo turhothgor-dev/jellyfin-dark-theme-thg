@@ -1,9 +1,9 @@
 ﻿/* =========================================================
-   Jellyfin Dark Theme THG
-   Version: 1.0.0
-   Author:  turhothgor-dev
-   License: MIT
-   ========================================================= */
+Jellyfin Dark Theme THG
+Version: 1.0.0
+Author:  turhothgor-dev
+License: MIT
+========================================================= */
 /* --------------------------------------------------------------------------
    1. COLOR PALETTE & VARIABLES
    Defining colors here allows you to change the whole theme from one spot.
@@ -26,6 +26,7 @@
     /* Geometry */
     --border-radius: 10px;
 }
+
 
 
 /* ==========================================================================
@@ -57,6 +58,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 .backdropImage {
+    background-position: top;
     /* Force GPU acceleration to prevent lag on older TVs */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -96,7 +98,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 /* --------------------------------------------------------------------------
-   5. BUTTONS & CONTROLS
+   4. BUTTONS & CONTROLS
    -------------------------------------------------------------------------- */
 .button-flat {
     /*border-radius: var(--border-radius) !important;*/
@@ -131,8 +133,27 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 /* --------------------------------------------------------------------------
-   6. TOP HEADER & NAVIGATION & MENU
+   5. TOP HEADER & NAVIGATION & MENU
    -------------------------------------------------------------------------- */
+   /*
+header {
+    background: none !important;
+    animation: headerScroll linear;
+    animation-timeline: scroll();
+    animation-range: 0px 100px;
+}
+
+@keyframes headerScroll {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px) brightness(40%);
+  }
+}*/
+
 .skinHeader, .skinHeader.semiTransparent, .mainDrawer, .drawer-open {
     background-color: rgba(0, 0, 0, 0.65) !important;
     backdrop-filter: blur(15px) !important;
@@ -154,77 +175,9 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     outline-offset: -2px;
 }
 
-/* --------------------------------------------------------------------------
-   ITEM DETAILS
-   -------------------------------------------------------------------------- */
-.detailImageContainer {
-    border-radius: var(--border-radius);
-    position: fixed !important;
-    z-index: 10;
-    top: 23vh;
-    left: 5vh;
-    max-height: 75vh !important;
-    pointer-events: none;
-}
-
-.detailImageContainer .cardScalable {
-    max-height: 75vh;
-}
-
-.itemBackdrop {
-    height: 40vh;
-}
-
-.detailLogo {
-    top: 10vh;  
-}
-
-.detailSection {
-    opacity: 0;
-    transform: translateX(60px);
-    animation: slideInRight 0.6s ease-out forwards;
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* **** PAgination *** */
-
-.alphaPicker-fixed-right {
-    top: 5vh !important;
-}
 
 /* --------------------------------------------------------------------------
-   9. SCROLLBARS
-   -------------------------------------------------------------------------- */
-body {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 4px;
-}
-
-/* --------------------------------------------------------------------------
-   4. MEDIA CARDS
+   6. MEDIA CARDS
    Clean borders, smooth hover scaling.
    -------------------------------------------------------------------------- */
 .cardBox {
@@ -332,6 +285,110 @@ body {
     width: clamp(20px, 4vw, 28px);
 }
 
+
+/* --------------------------------------------------------------------------
+   8. ITEM DETAILS
+   -------------------------------------------------------------------------- */
+
+.itemDetailPage {
+  padding-top: 50vh !important;
+}
+
+.detailImageContainer {
+    display: none;
+    border-radius: var(--border-radius);
+    position: fixed !important;
+    z-index: 10;
+    top: 23vh;
+    left: 5vh;
+    max-height: 75vh !important;
+    pointer-events: none;
+}
+
+.detailImageContainer .cardScalable {
+    max-height: 75vh;
+}
+
+.itemBackdrop {
+    height: inherit;
+}
+
+.detailLogo {
+    top: 27vh;
+    left: 2.8vw;
+    background-position: left;
+}
+
+.layout-desktop [dir="ltr"] .detailRibbon {
+    padding-left: 4vw;
+}
+
+.layout-desktop .detailRibbon {
+    height: 5.2em;
+    margin-top: -5.2em;
+    background: none;
+    display: block;
+}
+
+[dir="ltr"] .detailPagePrimaryContent {
+  padding-left: 3.6vw;
+}
+
+.detailPagePrimaryContent {
+    padding-top: 1vh;
+}
+
+.detailSection {
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideInRight 0.6s ease-out forwards;
+    background: rgb(0,0,0, 0.2);
+    padding: 20px;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.detailSectionContent {
+    margin-top: 10px;
+}
+
+#castContent .overflowPortraitCard {
+    max-width: 9vw;
+    min-width: 7vw;
+}
+
+#castContent  .card {
+    font-size: 13px;
+}
+#castContent .cardText {
+    padding: .01em 2px;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* **** Pagination *** */
+
+.alphaPicker-fixed-right {
+    top: 5vh !important;
+}
+
+/* ----------------------------------- 
+    List items on series
+   ----------------------------------- */
+
+   .listItemImage {
+    max-height: 13em;
+}
+
 /* --------------------------------------------------------------------------
    8. LOGIN SCREEN
    -------------------------------------------------------------------------- */
@@ -371,6 +428,28 @@ body {
     margin-right: auto !important;
     margin-bottom: 1.2em !important;
 }
+
+/* --------------------------------------------------------------------------
+   9. SCROLLBARS
+   -------------------------------------------------------------------------- */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
 
 /* --------------------------------------------------------------------------
 10. PLAYER OVERLAY
@@ -762,4 +841,3 @@ body {
     outline-offset: -2px;
     background: rgba(255, 255, 255, 0.08);
 }
-
