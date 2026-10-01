@@ -81,6 +81,11 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     color: #fff;
 }
 
+.button-flat:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 .detailButton {
     margin-right: 0.35em !important;
 }
@@ -108,9 +113,15 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 .navMenuOption-selected {
-    background-color: rgba(0, 164, 220, 0.2) !important; /* Using accent color with opacity */
+    background-color: rgba(0, 164, 220, 0.2) !important; /* Fallback for older browsers */
+    background-color: color-mix(in srgb, var(--accent-color) 20%, transparent) !important; /* Using accent color with opacity */
     color: var(--accent-color);
     border-left: 4px solid var(--accent-color);
+}
+
+.navMenuOption:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -122,8 +133,12 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     z-index: 10;
     top: 23vh;
     left: 5vh;
-    max-height: 75vh;
+    max-height: 75vh !important;
     pointer-events: none;
+}
+
+.detailImageContainer .cardScalable {
+    max-height: 75vh;
 }
 
 .itemBackdrop {
@@ -154,5 +169,26 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 /* **** PAgination *** */
 
 .alphaPicker-fixed-right {
-    top: 5hv !important;
+    top: 5vh !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. SCROLLBARS
+   -------------------------------------------------------------------------- */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
 }

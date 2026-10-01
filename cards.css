@@ -21,6 +21,12 @@
     transform: scale(1.04);
 }
 
+/* TV / D-pad focus ring */
+.cardBox:focus, .cardBox:focus-within {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 .overflowPortraitCard {
     overflow: visible;
 }
@@ -76,9 +82,6 @@
    -------------------------------------------------------------------------- */
 @media (min-width: 1440px) {
   .quality-overlay-container {
-   /* top: 2px;
-    flex-direction: row;
-    left: auto;*/
     gap: 4px;
   }
 
@@ -100,8 +103,6 @@
   font-size: 0.7rem;
 }
 
-.language-overlay-container {
-  .language-flag {
+.language-overlay-container .language-flag {
     width: clamp(20px, 4vw, 28px);
-  }
 }
