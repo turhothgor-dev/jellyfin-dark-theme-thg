@@ -14,6 +14,7 @@ Jellyfin Dark Theme THG
 Version: 1.0.0
 Author:  turhothgor-dev
 License: MIT
+Use: @import url(https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/theme.css);
 ========================================================= */
 ```
 
@@ -29,8 +30,8 @@ The following CSS files in the project root are the sources to merge:
 | `itemDetails.css` | 8. ITEM DETAILS |
 | `login.css` | 9. LOGIN SCREEN |
 | `scrollBars.css` | 10. SCROLLBARS |
-| `player.css` | 11. PLAYER OVERLAY |
-| `modals.css` | 12. MODALS & DIALOGS, 13. TOASTS / NOTIFICATIONS, 14. CONTEXT / OPTIONS MENU |
+| `modals.css` | 11. MODALS & DIALOGS, 12. TOASTS / NOTIFICATIONS, 13. CONTEXT / OPTIONS MENU |
+| `player.css` | 14. PLAYER OVERLAY |
 
 ## Correct Section Order
 
@@ -47,10 +48,10 @@ The merged `theme.css` must contain sections in this exact order:
 9. **ITEM DETAILS** (from `itemDetails.css`)
 10. **LOGIN SCREEN** (from `login.css`)
 11. **SCROLLBARS** (from `scrollBars.css`)
-12. **PLAYER OVERLAY** (from `player.css`)
-13. **MODALS & DIALOGS** (from `modals.css`)
-14. **TOASTS / NOTIFICATIONS** (from `modals.css`)
-15. **CONTEXT / OPTIONS MENU** (from `modals.css`)
+12. **MODALS & DIALOGS** (from `modals.css`)
+13. **TOASTS / NOTIFICATIONS** (from `modals.css`)
+14. **CONTEXT / OPTIONS MENU** (from `modals.css`)
+15. **PLAYER OVERLAY** (from `player.css`)
 
 ## Merge Instructions
 

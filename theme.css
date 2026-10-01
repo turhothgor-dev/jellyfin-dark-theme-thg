@@ -3,6 +3,7 @@ Jellyfin Dark Theme THG
 Version: 1.0.0
 Author:  turhothgor-dev
 License: MIT
+Use: @import url(https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/theme.css);
 ========================================================= */
 /* --------------------------------------------------------------------------
    1. COLOR PALETTE & VARIABLES
@@ -285,13 +286,44 @@ header {
     width: clamp(20px, 4vw, 28px);
 }
 
-
 /* --------------------------------------------------------------------------
    8. ITEM DETAILS
    -------------------------------------------------------------------------- */
 
-.itemDetailPage {
+.layout-mobile .itemDetailPage {
+  padding-top: 9vh !important;
+}
+
+.layout-tv .itemDetailPage,
+.layout-desktop .itemDetailPage {
   padding-top: 50vh !important;
+}
+
+.layout-mobile [dir="ltr"] .detailRibbon,
+.layout-tv [dir="ltr"] .detailRibbon,
+.layout-desktop [dir="ltr"] .detailRibbon {
+    padding-left: 4vw;
+}
+
+.layout-mobile .detailRibbon {
+    height: 11.2em;
+}
+
+.layout-mobile h1.itemName {
+  font-size: 2.6em;
+}
+
+.layout-tv .detailRibbon,
+.layout-desktop .detailRibbon {
+    height: 5.2em;
+}
+
+.layout-mobile .detailRibbon,
+.layout-tv .detailRibbon,
+.layout-desktop .detailRibbon {
+    margin-top: -5.2em;
+    background: none;
+    display: block;
 }
 
 .detailImageContainer {
@@ -315,19 +347,9 @@ header {
 
 .detailLogo {
     top: 27vh;
-    left: 2.8vw;
+    left: 3.8vw;
     background-position: left;
-}
-
-.layout-desktop [dir="ltr"] .detailRibbon {
-    padding-left: 4vw;
-}
-
-.layout-desktop .detailRibbon {
-    height: 5.2em;
-    margin-top: -5.2em;
-    background: none;
-    display: block;
+    max-width: 600px;
 }
 
 [dir="ltr"] .detailPagePrimaryContent {
@@ -336,6 +358,10 @@ header {
 
 .detailPagePrimaryContent {
     padding-top: 1vh;
+}
+
+.layout-mobile .itemName.parentNameLast {
+  margin: 1em 0 0.4em;
 }
 
 .detailSection {
