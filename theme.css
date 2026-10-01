@@ -1,5 +1,603 @@
-/* =========================================================
-   theme.css (The Master File)
+﻿/* =========================================================
+   Jellyfin Dark Theme THG
+   Version: 1.0.0
+   Author:  turhothgor-dev
+   License: MIT
    ========================================================= */
+/* --------------------------------------------------------------------------
+   1. COLOR PALETTE & VARIABLES
+   Defining colors here allows you to change the whole theme from one spot.
+   https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/variables.css
+   -------------------------------------------------------------------------- */
+:root {
+    /* Backgrounds */
+    --theme-bg: #0f0f13;
+    --theme-drawer-bg: #141419;
+    --card-bg: rgba(25, 25, 30, 0.8);
+    
+    /* Accents (Change this to your preferred brand color) */
+    --accent-color: #00a4dc; 
+    --accent-color-hover: #00c3ff;
+    
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0aa;
+    
+    /* Geometry */
+    --border-radius: 10px;
+}
 
-/* all files should be merged here */
+
+/* ==========================================================================
+   CUSTOM JELLYFIN THEME - BASE
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL BACKGROUNDS & TEXT
+   -------------------------------------------------------------------------- */
+.backgroundContainer, .workspace {
+    background-color: var(--theme-bg);
+}
+
+body, h1, h2, h3, h4, h5, h6, .textActionButton {
+    color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   3. BACKDROP ANIMATIONS (Hardware Accelerated & TV Safe)
+   Removes default blur and replaces it with a slow, performant zoom/rotate.
+   -------------------------------------------------------------------------- */
+/* Darken the backdrop slightly so text remains readable */
+.backdropContainer {
+    background-color: var(--theme-bg);
+}
+
+.backgroundContainer.withBackdrop {
+    background-color: rgba(0,0,0,.55) !important;
+}
+
+.backdropImage {
+    /* Force GPU acceleration to prevent lag on older TVs */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    filter: saturate(70%);
+    -webkit-animation: backdropMove 10s ease-in-out forwards;
+    animation: backdropMove 10s ease-in-out forwards;
+}
+
+/* TV-safe prefixed keyframes */
+@-webkit-keyframes backdropMove {
+    0% {
+        -webkit-transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Match Jellyfin's built-in fade-in timing */
+    }
+    100% {
+        /* Subtle 15% zoom and 1.5 degree rotation */
+        -webkit-transform: scale(1.1) rotate(1.5deg);
+        opacity: 1;
+    }
+}
+
+@keyframes backdropMove {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Match Jellyfin's built-in fade-in timing */
+    }
+    100% {
+        transform: scale(1.1) rotate(1.5deg);
+        opacity: 1;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS & CONTROLS
+   -------------------------------------------------------------------------- */
+.button-flat {
+    /*border-radius: var(--border-radius) !important;*/
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+.button-flat:hover, .button-flat:focus {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.button-flat:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.detailButton {
+    margin-right: 0.35em !important;
+}
+
+.sectionTitleTextButton, .sectionTitleTextButton:not(.padded-left) {
+    border-radius: 2px !important;
+    padding: 15px 10px 10px 20px !important
+}
+
+.listTextButton-autohide {
+    border-radius: 2px !important;
+    margin: 0 5px !important
+}
+
+/* --------------------------------------------------------------------------
+   6. TOP HEADER & NAVIGATION & MENU
+   -------------------------------------------------------------------------- */
+.skinHeader, .skinHeader.semiTransparent, .mainDrawer, .drawer-open {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+.mainDrawer {
+    background-color: var(--theme-drawer-bg);
+}
+
+.navMenuOption-selected {
+    background-color: rgba(0, 164, 220, 0.2) !important; /* Fallback for older browsers */
+    background-color: color-mix(in srgb, var(--accent-color) 20%, transparent) !important; /* Using accent color with opacity */
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+}
+
+.navMenuOption:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+}
+
+/* --------------------------------------------------------------------------
+   ITEM DETAILS
+   -------------------------------------------------------------------------- */
+.detailImageContainer {
+    border-radius: var(--border-radius);
+    position: fixed !important;
+    z-index: 10;
+    top: 23vh;
+    left: 5vh;
+    max-height: 75vh !important;
+    pointer-events: none;
+}
+
+.detailImageContainer .cardScalable {
+    max-height: 75vh;
+}
+
+.itemBackdrop {
+    height: 40vh;
+}
+
+.detailLogo {
+    top: 10vh;  
+}
+
+.detailSection {
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* **** PAgination *** */
+
+.alphaPicker-fixed-right {
+    top: 5vh !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. SCROLLBARS
+   -------------------------------------------------------------------------- */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4. MEDIA CARDS
+   Clean borders, smooth hover scaling.
+   -------------------------------------------------------------------------- */
+.cardBox {
+    margin-left: 0.5em !important;
+    margin-right: 0.5em !important;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    
+    /* TV-safe transitions */
+    -webkit-transition: -webkit-transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: center;
+}
+
+/* Desktop hover & TV focus states */
+.cardBox:hover, .cardBox:focus-within {
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+}
+
+/* TV / D-pad focus ring */
+.cardBox:focus, .cardBox:focus-within {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.overflowPortraitCard {
+    overflow: visible;
+}
+
+/* Card Titles */
+.cardText {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.cardText-secondary {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+/* --------------------------------------------------------------------------
+   7. CARD INDICATORS (Watched & Progress)
+   -------------------------------------------------------------------------- */
+/* The "Watched" checkmark circle */
+.playedIndicator {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* The unplayed episode count notification badge */
+.countIndicator {
+    background-color: var(--theme-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* The resume progress bar at the bottom of a card */
+.itemProgressBar {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 6px; /* Make it slightly thicker */
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+/* The filled portion of the progress bar */
+.itemProgressBarForeground {
+    background-color: var(--accent-color);
+}
+
+.cardOverlayContainer {
+  box-shadow: inset 0 0 3em 1.5em black;
+  border: 1px solid rgba(100, 100, 100, 0.81);
+  background-color: rgba(0, 0, 0, 0);
+  transition: opacity .6s;
+}
+
+/* --------------------------------------------------------------------------
+   MEDIA INFO AND RATINGS
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .quality-overlay-container {
+    gap: 4px;
+  }
+
+  .quality-overlay-label {
+    font-size: 0.7rem;
+    padding: 1px 8px;
+    border-radius: 4px;
+  }
+}
+
+.rating-overlay-container {
+  bottom: 2px;
+  right: auto;
+  flex-direction: row;
+  gap: 2px;
+}
+.rating-tag {
+  padding: 2px 8px;
+  font-size: 0.7rem;
+}
+
+.language-overlay-container .language-flag {
+    width: clamp(20px, 4vw, 28px);
+}
+
+/* --------------------------------------------------------------------------
+   8. LOGIN SCREEN
+   -------------------------------------------------------------------------- */
+/* Center the login box and give it a styled background */
+#loginPage {
+    background: radial-gradient(circle at center, #1a1a24 0%, #050508 100%);
+    margin-top: 8em;
+    /*
+      background: url(https://raw.githubusercontent.com/CTalvio/Ultrachromic/main/assets/background.png) !important;
+        background-size: cover !important;
+    */
+}
+
+#loginPage .readOnlyContent {
+    background-color: rgba(20, 20, 25, 0.8);
+    backdrop-filter: blur(10px); /* Blur is okay here, TVs rarely see the login screen! */
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Style the login input fields */
+.emby-input {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: var(--text-primary);
+}
+
+.emby-input:focus {
+    border-color: var(--accent-color);
+}
+
+#loginPage .sectionTitle{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 1.2em !important;
+}
+
+/* --------------------------------------------------------------------------
+11. MODALS & DIALOGS
+-------------------------------------------------------------------------- */
+
+.dialogBackdrop {
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.dialogContainer {
+    background: var(--theme-drawer-bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    -webkit-animation: dialogIn 0.25s ease-out;
+    animation: dialogIn 0.25s ease-out;
+}
+
+@-webkit-keyframes dialogIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.95) translateY(10px);
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes dialogIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.95) translateY(10px);
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+    }
+}
+
+.dialogHeader {
+    padding: 1.2em 1.5em 0.8em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dialogHeader h2,
+.dialogHeader .dialogTitle {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.dialogHeader .btnClose {
+    color: var(--text-secondary);
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.dialogHeader .btnClose:hover,
+.dialogHeader .btnClose:focus {
+    color: var(--accent-color);
+}
+
+.dialogContent {
+    padding: 1.2em 1.5em;
+    color: var(--text-primary);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.dialogFooter {
+    padding: 0.8em 1.5em 1.2em;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6em;
+}
+
+.dialogFooter .button-submit {
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    -webkit-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+.dialogFooter .button-submit:hover,
+.dialogFooter .button-submit:focus {
+    background: var(--accent-color-hover);
+}
+
+.dialogFooter .button-cancel,
+.dialogFooter .button-alt {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+    -webkit-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+.dialogFooter .button-cancel:hover,
+.dialogFooter .button-alt:hover,
+.dialogFooter .button-cancel:focus,
+.dialogFooter .button-alt:focus {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.confirmationDialog {
+    text-align: center;
+}
+
+.confirmationDialog .dialogContent p {
+    color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+12. TOASTS / NOTIFICATIONS
+-------------------------------------------------------------------------- */
+
+.toast {
+    background: var(--theme-drawer-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    padding: 0.9em 1.2em;
+    color: var(--text-primary);
+    -webkit-animation: toastIn 0.3s ease-out;
+    animation: toastIn 0.3s ease-out;
+}
+
+@-webkit-keyframes toastIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(16px);
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(16px);
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.toast.toast-error {
+    border-left-color: #e74c3c;
+}
+
+.toast.toast-success {
+    border-left-color: #2ecc71;
+}
+
+.toast.toast-warning {
+    border-left-color: #f39c12;
+}
+
+/* --------------------------------------------------------------------------
+13. CONTEXT / OPTIONS MENU (the "â‹®" popup)
+-------------------------------------------------------------------------- */
+
+.menuItems {
+    background: var(--theme-drawer-bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--border-radius);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    padding: 0.4em 0;
+}
+
+.menuItems .menuItem {
+    padding: 0.6em 1.2em;
+    color: var(--text-primary);
+    -webkit-transition: background 0.15s, color 0.15s;
+    transition: background 0.15s, color 0.15s;
+}
+
+.menuItems .menuItem:hover,
+.menuItems .menuItem:focus {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent-color);
+}
+
+.menuItems .menuItem.button-link {
+    padding: 0.6em 1.2em;
+    color: var(--text-primary);
+    -webkit-transition: background 0.15s, color 0.15s;
+    transition: background 0.15s, color 0.15s;
+}
+
+.menuItems .menuItem.button-link:hover,
+.menuItems .menuItem.button-link:focus {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent-color);
+}
+
+.menuItems .menuItem[disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.menuSeparator {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 0.3em 0;
+}
+
+.menuItems .menuItem:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+

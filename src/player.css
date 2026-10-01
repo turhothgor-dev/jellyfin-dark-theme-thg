@@ -1,0 +1,160 @@
+/* --------------------------------------------------------------------------
+10. PLAYER OVERLAY
+-------------------------------------------------------------------------- */
+
+.videoContainer {
+    background-color: var(--theme-bg);
+}
+
+.videoContainer:not(.hideControls) {
+    cursor: none;
+}
+
+.videoContainer video {
+    cursor: none;
+}
+
+.topBar {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+    padding: 1.2em 1.5em 0;
+}
+
+.topBar .buttonContainer {
+    /* Buttons inherit accent on hover/focus */
+}
+
+.bottomBar {
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+    padding: 0 1.5em 1em;
+}
+
+.bottomBar .btnPause,
+.bottomBar .btnRewind,
+.bottomBar .btnForward,
+.bottomBar .btnNextTrack,
+.bottomBar .btnPrevTrack {
+    color: var(--text-primary);
+    transition: color 0.2s, transform 0.2s;
+    -webkit-transition: color 0.2s, -webkit-transform 0.2s;
+    -webkit-transform: scale(1);
+}
+
+.bottomBar .btnPause:hover,
+.bottomBar .btnRewind:hover,
+.bottomBar .btnForward:hover,
+.bottomBar .btnNextTrack:hover,
+.bottomBar .btnPrevTrack:hover,
+.bottomBar .btnPause:focus,
+.bottomBar .btnRewind:focus,
+.bottomBar .btnForward:focus,
+.bottomBar .btnNextTrack:focus,
+.bottomBar .btnPrevTrack:focus {
+    color: var(--accent-color);
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+}
+
+.mediaProgressBar {
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    transition: height 0.2s;
+    -webkit-transition: height 0.2s;
+}
+
+.mediaProgressBar:hover {
+    height: 8px;
+}
+
+.mediaProgressBarContainer {
+    padding: 8px 0;
+}
+
+.mediaProgressBar .progressBarBack {
+    background: rgba(255,255,255,0.15);
+}
+
+.mediaProgressBar .progressBarBuffered {
+    background: rgba(255,255,255,0.3);
+}
+
+.mediaProgressBar .progressBarPrimary {
+    background: var(--accent-color);
+}
+
+.mediaProgressBar .progressBarContainer {
+    height: 100%;
+    border-radius: 2px;
+}
+
+.volumeContainer {
+    opacity: 0;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+}
+
+.volumeContainer:hover,
+.volumeContainer:focus-within {
+    opacity: 1;
+}
+
+.volumeProgressBar .progressBarPrimary {
+    background: var(--accent-color);
+}
+
+.btnSubtitles {
+    /* Same hover/focus treatment as other bottom-bar buttons */
+}
+
+.btnFullscreen,
+.btnPictureInPicture,
+.btnCast {
+    /* Same hover/focus pattern (accent color + slight scale) */
+}
+
+.btnSubtitles:hover,
+.btnSubtitles:focus,
+.btnFullscreen:hover,
+.btnFullscreen:focus,
+.btnPictureInPicture:hover,
+.btnPictureInPicture:focus,
+.btnCast:hover,
+.btnCast:focus {
+    color: var(--accent-color);
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+}
+
+.nowPlayingTitle {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.nowPlayingSubtitle {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+/* TV / D-pad focus */
+.bottomBar .btnPause:focus,
+.bottomBar .btnRewind:focus,
+.bottomBar .btnForward:focus,
+.bottomBar .btnNextTrack:focus,
+.bottomBar .btnPrevTrack:focus,
+.btnSubtitles:focus,
+.btnFullscreen:focus,
+.btnPictureInPicture:focus,
+.btnCast:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.mediaProgressBar:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
+.loadingSpinner {
+    color: var(--accent-color);
+}

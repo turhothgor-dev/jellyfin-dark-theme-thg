@@ -1,0 +1,228 @@
+/* --------------------------------------------------------------------------
+11. MODALS & DIALOGS
+-------------------------------------------------------------------------- */
+
+.dialogBackdrop {
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.dialogContainer {
+    background: var(--theme-drawer-bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    -webkit-animation: dialogIn 0.25s ease-out;
+    animation: dialogIn 0.25s ease-out;
+}
+
+@-webkit-keyframes dialogIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.95) translateY(10px);
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes dialogIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.95) translateY(10px);
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+    }
+}
+
+.dialogHeader {
+    padding: 1.2em 1.5em 0.8em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dialogHeader h2,
+.dialogHeader .dialogTitle {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.dialogHeader .btnClose {
+    color: var(--text-secondary);
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.dialogHeader .btnClose:hover,
+.dialogHeader .btnClose:focus {
+    color: var(--accent-color);
+}
+
+.dialogContent {
+    padding: 1.2em 1.5em;
+    color: var(--text-primary);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.dialogFooter {
+    padding: 0.8em 1.5em 1.2em;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6em;
+}
+
+.dialogFooter .button-submit {
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    -webkit-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+.dialogFooter .button-submit:hover,
+.dialogFooter .button-submit:focus {
+    background: var(--accent-color-hover);
+}
+
+.dialogFooter .button-cancel,
+.dialogFooter .button-alt {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    border-radius: var(--border-radius);
+    -webkit-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+.dialogFooter .button-cancel:hover,
+.dialogFooter .button-alt:hover,
+.dialogFooter .button-cancel:focus,
+.dialogFooter .button-alt:focus {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.confirmationDialog {
+    text-align: center;
+}
+
+.confirmationDialog .dialogContent p {
+    color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+12. TOASTS / NOTIFICATIONS
+-------------------------------------------------------------------------- */
+
+.toast {
+    background: var(--theme-drawer-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    padding: 0.9em 1.2em;
+    color: var(--text-primary);
+    -webkit-animation: toastIn 0.3s ease-out;
+    animation: toastIn 0.3s ease-out;
+}
+
+@-webkit-keyframes toastIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(16px);
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(16px);
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.toast.toast-error {
+    border-left-color: #e74c3c;
+}
+
+.toast.toast-success {
+    border-left-color: #2ecc71;
+}
+
+.toast.toast-warning {
+    border-left-color: #f39c12;
+}
+
+/* --------------------------------------------------------------------------
+13. CONTEXT / OPTIONS MENU (the "⋮" popup)
+-------------------------------------------------------------------------- */
+
+.menuItems {
+    background: var(--theme-drawer-bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--border-radius);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    padding: 0.4em 0;
+}
+
+.menuItems .menuItem {
+    padding: 0.6em 1.2em;
+    color: var(--text-primary);
+    -webkit-transition: background 0.15s, color 0.15s;
+    transition: background 0.15s, color 0.15s;
+}
+
+.menuItems .menuItem:hover,
+.menuItems .menuItem:focus {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent-color);
+}
+
+.menuItems .menuItem.button-link {
+    padding: 0.6em 1.2em;
+    color: var(--text-primary);
+    -webkit-transition: background 0.15s, color 0.15s;
+    transition: background 0.15s, color 0.15s;
+}
+
+.menuItems .menuItem.button-link:hover,
+.menuItems .menuItem.button-link:focus {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--accent-color);
+}
+
+.menuItems .menuItem[disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.menuSeparator {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 0.3em 0;
+}
+
+.menuItems .menuItem:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+    background: rgba(255, 255, 255, 0.08);
+}
