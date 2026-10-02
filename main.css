@@ -104,22 +104,6 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 /* --------------------------------------------------------------------------
    5. TOP HEADER & NAVIGATION & MENU
    -------------------------------------------------------------------------- */
-/*header {
-    animation: headerScroll linear;
-    animation-timeline: scroll();
-    animation-range: 0px 100px;
-}
-
-@keyframes headerScroll {
-  0% {
-    background-color: rgba(255, 255, 255, 0);
-  }
-  100% {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.5px) brightness(40%);
-  }
-}*/
 
 .skinHeader, .skinHeader.semiTransparent, .mainDrawer, .drawer-open {
     background-color: rgba(0, 0, 0, 0.65) !important;

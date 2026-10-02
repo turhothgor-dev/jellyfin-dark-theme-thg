@@ -88,7 +88,7 @@ After merging, verify:
 - [ ] The file is valid CSS (no syntax errors from concatenation)
 
 ## Commnad in Windows
-cd G:\desarrollo\jellyfin-server\jellyfin-dark-theme-thg; $ErrorActionPreference = 'Stop'; $header = "/* =========================================================`nJellyfin Dark Theme THG`nVersion: 1.0.0`nAuthor:  turhothgor-dev`nLicense: MIT`n========================================================= */`n"; $content = $header + (Get-Content variables.css -Raw) + "`n`n" + (Get-Content main.css -Raw) + "`n`n" + (Get-Content cards.css -Raw) + "`n`n" + (Get-Content itemDetails.css -Raw) + "`n`n" + (Get-Content login.css -Raw) + "`n`n" + (Get-Content scrollBars.css -Raw) + "`n`n" + (Get-Content player.css -Raw) + "`n`n" + (Get-Content modals.css -Raw); Set-Content -Path theme.css -Value $content -Encoding UTF8 -NoNewline
+cd G:\desarrollo\jellyfin-server\jellyfin-dark-theme-thg; $ErrorActionPreference = 'Stop'; $header = "/* =========================================================`nJellyfin Dark Theme THG`nVersion: 1.0.0`nAuthor:  turhothgor-dev`nLicense: MIT`nUse: @import url(https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/theme.css);`n========================================================= */`n"; $content = $header + (Get-Content variables.css -Raw) + "`n`n" + (Get-Content main.css -Raw) + "`n`n" + (Get-Content cards.css -Raw) + "`n`n" + (Get-Content itemDetails.css -Raw) + "`n`n" + (Get-Content login.css -Raw) + "`n`n" + (Get-Content scrollBars.css -Raw) + "`n`n" + (Get-Content modals.css -Raw) + "`n`n" + (Get-Content player.css -Raw); Set-Content -Path theme.css -Value $content -Encoding UTF8 -NoNewline; Write-Output "Done. Lines:"; (Get-Content theme.css).Count
 
 ## Command for linux
 cd G:\desarrollo\jellyfin-server\jellyfin-dark-theme-thg && $header = @"
@@ -97,5 +97,6 @@ Jellyfin Dark Theme THG
 Version: 1.0.0
 Author:  turhothgor-dev
 License: MIT
+Use: @import url(https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/theme.css);
 ========================================================= */
 "@; $content = $header + "`n" + (Get-Content variables.css -Raw) + "`n`n" + (Get-Content main.css -Raw) + "`n`n" + (Get-Content cards.css -Raw) + "`n`n" + (Get-Content itemDetails.css -Raw) + "`n`n" + (Get-Content login.css -Raw) + "`n`n" + (Get-Content scrollBars.css -Raw) + "`n`n" + (Get-Content player.css -Raw) + "`n`n" + (Get-Content modals.css -Raw); Set-Content -Path theme.css -Value $content -Encoding UTF8
