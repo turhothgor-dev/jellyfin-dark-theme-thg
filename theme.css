@@ -292,7 +292,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 .layout-mobile [dir="ltr"] .infoWrapper {
-  padding-left: unset;
+  padding-left: unset !important;
 }
 
 .layout-mobile .detailRibbon {
