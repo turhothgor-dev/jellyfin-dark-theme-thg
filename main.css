@@ -110,6 +110,10 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     backdrop-filter: blur(15px) !important;
 }
 
+.layout-mobile .skinHeader {
+    display: none;
+}
+
 .mainDrawer {
     background-color: var(--theme-drawer-bg);
 }

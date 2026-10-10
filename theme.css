@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
 Jellyfin Dark Theme THG
 Version: 1.0.0
 Author:  turhothgor-dev
@@ -142,6 +142,10 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     backdrop-filter: blur(15px) !important;
 }
 
+.layout-mobile .skinHeader {
+    display: none;
+}
+
 .mainDrawer {
     background-color: var(--theme-drawer-bg);
 }
@@ -273,19 +277,22 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
    8. ITEM DETAILS
    -------------------------------------------------------------------------- */
 
-.layout-mobile .itemDetailPage {
-  padding-top: 9vh !important;
-}
-
 .layout-tv .itemDetailPage,
 .layout-desktop .itemDetailPage {
   padding-top: 50vh !important;
 }
 
-.layout-mobile [dir="ltr"] .detailRibbon,
+.layout-mobile .detailPageWrapperContainer {
+    margin-top: -21vh !important;
+}
+
 .layout-tv [dir="ltr"] .detailRibbon,
 .layout-desktop [dir="ltr"] .detailRibbon {
     padding-left: 4vw;
+}
+
+.layout-mobile [dir="ltr"] .infoWrapper {
+  padding-left: unset;
 }
 
 .layout-mobile .detailRibbon {
@@ -635,7 +642,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-13. CONTEXT / OPTIONS MENU (the "â‹®" popup)
+13. CONTEXT / OPTIONS MENU (the "⋮" popup)
 -------------------------------------------------------------------------- */
 
 .menuItems {
