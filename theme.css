@@ -283,7 +283,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 .layout-mobile .detailPageWrapperContainer {
-    margin-top: -21vh !important;
+    margin-top: 4vh !important;
 }
 
 .layout-tv [dir="ltr"] .detailRibbon,
@@ -333,6 +333,10 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 
 .itemBackdrop {
     height: inherit;
+}
+
+.layout-mobile .itemBackdrop {
+    height: 30vh;
 }
 
 .detailLogo {

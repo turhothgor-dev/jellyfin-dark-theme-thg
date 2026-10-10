@@ -8,7 +8,7 @@
 }
 
 .layout-mobile .detailPageWrapperContainer {
-    margin-top: -21vh !important;
+    margin-top: 4vh !important;
 }
 
 .layout-tv [dir="ltr"] .detailRibbon,
@@ -58,6 +58,10 @@
 
 .itemBackdrop {
     height: inherit;
+}
+
+.layout-mobile .itemBackdrop {
+    height: 30vh;
 }
 
 .detailLogo {
