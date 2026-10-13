@@ -96,6 +96,10 @@
     border-radius: 10px;
 }
 
+.layout-tv .detailSection {
+    margin-top: 90px !important;
+}
+
 .layout-tv .detailSection,
 .layout-desktop .detailSection {
     background: rgb(0,0,0, 0.3);
