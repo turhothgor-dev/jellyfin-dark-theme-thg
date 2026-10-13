@@ -7,7 +7,7 @@
   padding-top: 50vh !important;
 }
 
-.layout-mobile .detailPageWrapperContainer {
+.detailPageWrapperContainer {
     margin-top: 4vh !important;
 }
 
@@ -36,7 +36,7 @@
 .layout-mobile .detailRibbon,
 .layout-tv .detailRibbon,
 .layout-desktop .detailRibbon {
-    margin-top: -5.2em;
+    margin-top: 0;
     background: none;
     display: block;
 }
@@ -65,36 +65,49 @@
 }
 
 .detailLogo {
-    top: 27vh;
+    top: 35vh;
     left: 3.8vw;
     background-position: left;
     max-width: 600px;
 }
 
 [dir="ltr"] .detailPagePrimaryContent {
-  padding-left: 3.6vw;
+    padding-left: 3.6vw;
 }
 
 .detailPagePrimaryContent {
-    padding-top: 1vh;
+    padding-top: 0;
 }
 
 .layout-mobile .itemName.parentNameLast {
-  margin: 1em 0 0.4em;
+    margin: 1em 0 0.4em;
+}
+
+.layout-mobile [dir="ltr"] .mainDetailButtons {
+  padding-left: 0%;
 }
 
 .detailSection {
     opacity: 0;
     transform: translateX(60px);
     animation: slideInRight 0.6s ease-out forwards;
-    background: rgb(0,0,0, 0.2);
     padding: 20px;
     margin-top: 70px;
     border-radius: 10px;
 }
 
+.layout-tv .detailSection,
+.layout-desktop .detailSection {
+    background: rgb(0,0,0, 0.3);
+    backdrop-filter: blur(15px);
+}
+
 .detailSectionContent {
-    margin-top: 10px;
+    margin-top: 2em;
+}
+
+.trackSelections {
+    max-width: 30em;
 }
 
 #castContent .overflowPortraitCard {
