@@ -27,6 +27,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
 }
 
 .backdropImage {
+    opacity: 0;
     background-position: top;
     /* Force GPU acceleration to prevent lag on older TVs */
     -webkit-transform: translateZ(0);
@@ -34,6 +35,19 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     filter: saturate(70%);
     -webkit-animation: backdropMove 10s ease-in-out forwards;
     animation: backdropMove 12s ease-in-out forwards;
+}
+
+.backdropImage.displayingBackdropImage {
+    opacity: 1;
+}
+
+.backdropImage.backdropImageFadeIn {
+  animation: backdrop-fadein 0.8s ease-in both;
+}
+
+@keyframes backdrop-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* TV-safe prefixed keyframes */
