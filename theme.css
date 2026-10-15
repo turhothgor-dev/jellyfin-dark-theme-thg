@@ -65,14 +65,15 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     filter: saturate(70%);
-    -webkit-animation: backdropMove 10s ease-in-out forwards;
-    animation: backdropMove 12s ease-in-out forwards;
+
 }
 
 .backdropImage.displayingBackdropImage {
     opacity: 1;
-    -webkit-animation: backdrop-fadein 0.4s ease-in both;
-    animation: backdrop-fadein 0.4s ease-in both;
+    -webkit-animation: backdropMove 10s ease-in-out forwards;
+    animation: backdropMove 12s ease-in-out forwards;
+/*    -webkit-animation: backdrop-fadein 0.4s ease-in both;
+    animation: backdrop-fadein 0.4s ease-in both;*/
 }
 
 @keyframes backdrop-fadein {
@@ -86,7 +87,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
         -webkit-transform: scale(1) rotate(0deg);
         opacity: 0;
     }
-    20% {
+    10% {
         opacity: 1; /* Match Jellyfin's built-in fade-in timing */
     }
     100% {
