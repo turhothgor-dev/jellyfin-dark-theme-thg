@@ -33,7 +33,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     transform: translateZ(0);
     filter: saturate(70%);
     -webkit-animation: backdropMove 10s ease-in-out forwards;
-    animation: backdropMove 10s ease-in-out forwards;
+    animation: backdropMove 12s ease-in-out forwards;
 }
 
 /* TV-safe prefixed keyframes */
