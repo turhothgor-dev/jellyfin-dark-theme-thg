@@ -187,6 +187,7 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
+    padding: .8em .8em 0 .8em !important;
     
     /* TV-safe transitions */
     -webkit-transition: -webkit-transform 0.2s ease, box-shadow 0.2s ease;
@@ -215,9 +216,16 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     color: var(--text-primary);
     font-weight: 600;
 }
+.cardText-first {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
 .cardText-secondary {
     color: var(--text-secondary);
     font-size: 0.9em;
+    margin-top: -.5em;
+    padding-bottom: 0.8em;
 }
 
 /* --------------------------------------------------------------------------
