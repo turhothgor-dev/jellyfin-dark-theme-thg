@@ -389,6 +389,10 @@ body, h1, h2, h3, h4, h5, h6, .textActionButton {
     padding-top: 0;
 }
 
+.layout-tv .detailPagePrimaryContent {
+    padding-top: 01.25em;
+}
+
 .layout-mobile .itemName.parentNameLast {
     margin: 1em 0 0.4em;
 }
