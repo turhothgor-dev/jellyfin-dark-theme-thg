@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Merge all individual CSS source files into a single `theme.css` file, you should replace all existing contenct inside theme.css, preserving the correct section order and ensuring the theme header is always at the top.
+Merge all individual CSS source files into a single `theme.css` file, you should replace all existing contenct inside theme.css, preserving the correct section order and ensuring the theme header is always at the top. 
+Do not delete original merged files.
 
 ## Required Header
 
@@ -11,7 +12,7 @@ The following header block MUST be the very first content in `theme.css` (before
 ```css
 /* =========================================================
 Jellyfin Dark Theme THG
-Version: 1.0.0
+Version: 1.0.1
 Author:  turhothgor-dev
 License: MIT
 Use: @import url(https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/theme.css);
@@ -76,6 +77,8 @@ The merged `theme.css` must contain sections in this exact order:
 
 8. **Do NOT include the header block from individual files** — The theme header at the top of `theme.css` replaces any per-file headers. Only the section-level comments are preserved.
 
+9. **Do NOT delete original merged css files**
+
 ## Validation Checklist
 
 After merging, verify:
@@ -86,6 +89,7 @@ After merging, verify:
 - [ ] No duplicate selectors/rules exist
 - [ ] All section comment headers are preserved
 - [ ] The file is valid CSS (no syntax errors from concatenation)
+- [ ] All original css files should be present and not modified
 
 ## Commnad in Windows
 cd G:\desarrollo\jellyfin-server\jellyfin-dark-theme-thg; $ErrorActionPreference = 'Stop'; $header = "/* =========================================================`nJellyfin Dark Theme THG`nVersion: 1.0.0`nAuthor:  turhothgor-dev`nLicense: MIT`nUse: @import url(https://cdn.jsdelivr.net/gh/turhothgor-dev/jellyfin-dark-theme-thg@main/theme.css);`n========================================================= */`n"; $content = $header + (Get-Content variables.css -Raw) + "`n`n" + (Get-Content main.css -Raw) + "`n`n" + (Get-Content cards.css -Raw) + "`n`n" + (Get-Content itemDetails.css -Raw) + "`n`n" + (Get-Content login.css -Raw) + "`n`n" + (Get-Content scrollBars.css -Raw) + "`n`n" + (Get-Content modals.css -Raw) + "`n`n" + (Get-Content player.css -Raw); Set-Content -Path theme.css -Value $content -Encoding UTF8 -NoNewline; Write-Output "Done. Lines:"; (Get-Content theme.css).Count
