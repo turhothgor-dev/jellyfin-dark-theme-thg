@@ -17,7 +17,7 @@
 }
 
 #castContent .cardBox {
-    padding: 0;
+    padding: 0 !important;
 }
 
 /* Desktop hover & TV focus states */
