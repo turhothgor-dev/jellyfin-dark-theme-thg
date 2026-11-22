@@ -16,6 +16,10 @@
     transform-origin: center;
 }
 
+#castContent .cardBox {
+    padding: 0;
+}
+
 /* Desktop hover & TV focus states */
 .cardBox:hover, .cardBox:focus-within {
     -webkit-transform: scale(1.04);
@@ -47,6 +51,15 @@
     font-size: 0.9em;
     margin-top: -.5em;
     padding-bottom: 0.8em;
+}
+
+#castContent .cardText {
+  padding: .1em 5px;
+  font-weight: 400;
+}
+
+#castContent .cardText-secondary {
+  padding-bottom: .5em !important;
 }
 
 /* --------------------------------------------------------------------------
